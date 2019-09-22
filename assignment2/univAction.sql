@@ -1,3 +1,6 @@
+/* INSERT value에 한글이 있을경우 생기는 encoding 관련 오류를 해결하기 위함. */
+SET client_encoding = 'utf8';
+
 --Department (3)
 INSERT INTO department VALUES ('COSE', '우정정보관', 32240000);
 INSERT INTO department VALUES ('BUSS', '경영본관', 20640000);
@@ -70,7 +73,7 @@ INSERT INTO course VALUES ('COSE222', '컴퓨터구조', 'COSE', 3);
 INSERT INTO course VALUES ('COSE242', '데이터통신', 'COSE', 3);
 INSERT INTO course VALUES ('COSE221', '논리설계', 'COSE', 3);
 INSERT INTO course VALUES ('BUSS207', '재무관리', 'BUSS', 3);
-INSERT INTO course VALUES ('PEMD220', '의학유전학', 'PEMD', 3);
+INSERT INTO course VALUES ('PMED220', '의학유전학', 'PMED', 3);
 --Prereq (1)
 INSERT INTO prereq VALUES ('COSE222', 'COSE221');
 --Classrooms (6)
@@ -89,8 +92,8 @@ INSERT INTO section VALUES ('COSE222', '03', '2nd', 2019, '정보통신관', '20
 INSERT INTO section VALUES ('COSE242', '00', '2nd', 2019, '정보통신관', '601', '00000000');
 INSERT INTO section VALUES ('BUSS207', '01', '2nd', 2019, 'LP관', '432', '00000000');
 INSERT INTO section VALUES ('BUSS207', '02', '2nd', 2019, 'LP관', '531', '00001111');
-INSERT INTO section VALUES ('PEMD220', '01', '2nd', 2019, '의대강의실', '제4', '00000000');
-INSERT INTO section VALUES ('PEMD220', '02', '2nd', 2019, '의대강의실', '제4', '00001111');
+INSERT INTO section VALUES ('PMED220', '01', '2nd', 2019, '의대강의실', '제4', '00000000');
+INSERT INTO section VALUES ('PMED220', '02', '2nd', 2019, '의대강의실', '제4', '00001111');
 --Teaches (10)
 INSERT INTO teaches VALUES ('32000', 'COSE371', '01', '2nd', 2019);
 INSERT INTO teaches VALUES ('32001', 'COSE371', '02', '2nd', 2019);
@@ -100,8 +103,8 @@ INSERT INTO teaches VALUES ('32002', 'COSE222', '03', '2nd', 2019);
 INSERT INTO teaches VALUES ('32003', 'COSE242', '00', '2nd', 2019);
 INSERT INTO teaches VALUES ('12000', 'BUSS207', '01', '2nd', 2019);
 INSERT INTO teaches VALUES ('12001', 'BUSS207', '02', '2nd', 2019);
-INSERT INTO teaches VALUES ('18000', 'PEMD220', '01', '2nd', 2019);
-INSERT INTO teaches VALUES ('18001', 'PEMD220', '02', '2nd', 2019);
+INSERT INTO teaches VALUES ('18000', 'PMED220', '01', '2nd', 2019);
+INSERT INTO teaches VALUES ('18001', 'PMED220', '02', '2nd', 2019);
 --Takes (10)
 INSERT INTO takes VALUES ('32100', 'COSE222', '02', '2nd', 2019, 'B+');
 INSERT INTO takes VALUES ('32101', 'COSE371', '01', '2nd', 2019, 'A+');
@@ -115,3 +118,6 @@ INSERT INTO takes VALUES ('32106', 'COSE371', '02', '2nd', 2019, 'B0');
 INSERT INTO takes VALUES ('32107', 'COSE222', '03', '2nd', 2019, 'A0');
 INSERT INTO takes VALUES ('32109', 'COSE371', '01', '2nd', 2019, 'A+');
 INSERT INTO takes VALUES ('32109', 'COSE242', '00', '2nd', 2019, 'A+');
+
+/* euc-kr 기준으로 다시 돌려둠 */
+SET client_encoding = 'euc-kr';
