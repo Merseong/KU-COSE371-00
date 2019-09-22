@@ -40,7 +40,7 @@ INSERT INTO student VALUES ('18101', 'John von Neuumann', 'PMED', 90);
 INSERT INTO student VALUES ('18102', 'Hojoon Yoon', 'PMED', 54);
 INSERT INTO student VALUES ('18103', 'Mingi Jeong', 'PMED', 18);
 INSERT INTO student VALUES ('18104', 'Mooser Joo', 'PMED', 18);
---Advisor (10)
+--Advisor (20)
 --COSE
 INSERT INTO advisor VALUES ('32100', '32000');
 INSERT INTO advisor VALUES ('32101', '32000');
@@ -53,23 +53,26 @@ INSERT INTO advisor VALUES ('32107', '32002');
 INSERT INTO advisor VALUES ('32108', '32003');
 INSERT INTO advisor VALUES ('32109', '32003');
 --BUSS
-INSERT INTO advisor VALUES ('12100', '12000');
-INSERT INTO advisor VALUES ('12101', '12000');
-INSERT INTO advisor VALUES ('12102', '12001');
-INSERT INTO advisor VALUES ('12103', '12001');
+INSERT INTO advisor VALUES ('12100', '12001');
+INSERT INTO advisor VALUES ('12101', '12001');
+INSERT INTO advisor VALUES ('12102', '12002');
+INSERT INTO advisor VALUES ('12103', '12002');
 INSERT INTO advisor VALUES ('12104', '12002');
 --PMED
 INSERT INTO advisor VALUES ('18100', '18000');
 INSERT INTO advisor VALUES ('18101', '18000');
-INSERT INTO advisor VALUES ('18102', '18001');
+INSERT INTO advisor VALUES ('18102', '18000');
 INSERT INTO advisor VALUES ('18103', '18001');
-INSERT INTO advisor VALUES ('18104', '18002');
---Classes (5)
-INSERT INTO course VALUES ('COSE371', '데이터베이스', 'COSE', '3');
-INSERT INTO course VALUES ('COSE222', '컴퓨터구조', 'COSE', '3');
-INSERT INTO course VALUES ('COSE242', '데이터통신', 'COSE', '3');
-INSERT INTO course VALUES ('BUSS207', '재무관리', 'BUSS', '3');
-INSERT INTO course VALUES ('PEMD220', '의학유전학', 'PEMD', '3');
+INSERT INTO advisor VALUES ('18104', '18001');
+--Classes (6)
+INSERT INTO course VALUES ('COSE371', '데이터베이스', 'COSE', 3);
+INSERT INTO course VALUES ('COSE222', '컴퓨터구조', 'COSE', 3);
+INSERT INTO course VALUES ('COSE242', '데이터통신', 'COSE', 3);
+INSERT INTO course VALUES ('COSE221', '논리설계', 'COSE', 3);
+INSERT INTO course VALUES ('BUSS207', '재무관리', 'BUSS', 3);
+INSERT INTO course VALUES ('PEMD220', '의학유전학', 'PEMD', 3);
+--Prereq (1)
+INSERT INTO prereq VALUES ('COSE222', 'COSE221');
 --Classrooms (6)
 INSERT INTO classroom VALUES ('애기능생활관', '301', 100);
 INSERT INTO classroom VALUES ('정보통신관', '205', 30);
@@ -88,3 +91,27 @@ INSERT INTO section VALUES ('BUSS207', '01', '2nd', 2019, 'LP관', '432', '00000
 INSERT INTO section VALUES ('BUSS207', '02', '2nd', 2019, 'LP관', '531', '00001111');
 INSERT INTO section VALUES ('PEMD220', '01', '2nd', 2019, '의대강의실', '제4', '00000000');
 INSERT INTO section VALUES ('PEMD220', '02', '2nd', 2019, '의대강의실', '제4', '00001111');
+--Teaches (10)
+INSERT INTO teaches VALUES ('32000', 'COSE371', '01', '2nd', 2019);
+INSERT INTO teaches VALUES ('32001', 'COSE371', '02', '2nd', 2019);
+INSERT INTO teaches VALUES ('32003', 'COSE222', '01', '2nd', 2019);
+INSERT INTO teaches VALUES ('32001', 'COSE222', '02', '2nd', 2019);
+INSERT INTO teaches VALUES ('32002', 'COSE222', '03', '2nd', 2019);
+INSERT INTO teaches VALUES ('32003', 'COSE242', '00', '2nd', 2019);
+INSERT INTO teaches VALUES ('12000', 'BUSS207', '01', '2nd', 2019);
+INSERT INTO teaches VALUES ('12001', 'BUSS207', '02', '2nd', 2019);
+INSERT INTO teaches VALUES ('18000', 'PEMD220', '01', '2nd', 2019);
+INSERT INTO teaches VALUES ('18001', 'PEMD220', '02', '2nd', 2019);
+--Takes (10)
+INSERT INTO takes VALUES ('32100', 'COSE222', '02', '2nd', 2019, 'B+');
+INSERT INTO takes VALUES ('32101', 'COSE371', '01', '2nd', 2019, 'A+');
+INSERT INTO takes VALUES ('32101', 'COSE222', '01', '2nd', 2019, 'A+');
+INSERT INTO takes VALUES ('32101', 'COSE242', '00', '2nd', 2019, 'A+');
+INSERT INTO takes VALUES ('32102', 'COSE371', '01', '2nd', 2019, 'B+');
+INSERT INTO takes VALUES ('32102', 'COSE242', '00', '2nd', 2019, 'A0');
+INSERT INTO takes VALUES ('32103', 'COSE371', '01', '2nd', 2019, 'A0');
+INSERT INTO takes VALUES ('32105', 'COSE242', '00', '2nd', 2019, 'B0');
+INSERT INTO takes VALUES ('32106', 'COSE371', '02', '2nd', 2019, 'B0');
+INSERT INTO takes VALUES ('32107', 'COSE222', '03', '2nd', 2019, 'A0');
+INSERT INTO takes VALUES ('32109', 'COSE371', '01', '2nd', 2019, 'A+');
+INSERT INTO takes VALUES ('32109', 'COSE242', '00', '2nd', 2019, 'A+');
