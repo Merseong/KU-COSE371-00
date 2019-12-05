@@ -1,0 +1,23 @@
+union operation은 두 가지가 있음
+UNION: 중복 제거
+UNION ALL: 중복 허용
+
+Equivalent SQL stmt: UNION 사용, between, in, or에 distinct 사용해서 중복 제거해주기
+Query plan: UNION ALL 사용
+
+수행시간이 비슷하게 나올 수도 있음.
+그런 경우 왜 비슷하게 나오는지 이유 설명.
+
+지난 시간에 만들었던 인덱스 제거 후 수행,
+Btree, Hash index 사용할때 하나만 있는 상태에서 수행
+
+EXPLAIN ANALYZE 사용해서 수행 시간 체크
+
+
+마지막 Query plan 문제에서 Query plan을 무시하고 SQL상 순서만 보라고 말씀드렸는데, 정정합니다.
+
+Query Plan을 보시고 두 가지 쿼리가 똑같은 Plan을 가지는지 서로 다른 plan을 가지는지 확인해 주시기 바랍니다.
+
+서로 다른 plan을 가지는 query에 대해서는 두 plan의 수행속도의 차이가 왜 있는지 서술해주세요.
+
+ 마지막 문제인 user-level optimization이 왜 중요한지도 이런 맥락에서 서술해 주시면 됩니다. (쿼리에 따라 plan이 달라지는 경우도 있으니....)
